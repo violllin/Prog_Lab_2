@@ -1,84 +1,27 @@
-﻿using System.Numerics;
-using System.Xml.Linq;
+﻿namespace Laba_2;
 
-namespace Laba_2
+public class Program
 {
-    public class List
+    public static void Main()
     {
-        private List<int> elements;
-        public List() 
-        {
-            elements = new List<int>();
-        }
-        public List(IEnumerable<int> elements)
-        {
-            this.elements = new List<int>(elements);
-        }
-        public override string ToString()
-        {
-            return $"List({string.Join(", ", elements)})";
-        }
-        public static List operator +(int item, List list)
-        {
-            var newList = new List(list.elements);
-            newList.elements.Insert(0, item);
-            return newList;
-        }
-        public static List operator --(List list)
-        {
-            var newList = new List(list.elements);
-            if (newList.elements.Count > 0)
-            {
-                newList.elements.RemoveAt(0);
-            }
-            return newList;
-        }
-        public static bool operator !=(List list1, List list2)
-        {
-            return !list1.Equals(list2);
-        }
-        public static bool operator ==(List list1, List list2)
-        {
-            return list1.Equals(list2);
-        }
-        public static List operator *(List list1, List list2)
-        {
-            var newList = new List(list1.elements);
-            newList.elements.AddRange(list2.elements);
-            return newList;
-        }
-        public override bool Equals(object obj)
-        {
-            if (obj == null || obj.GetType() != this.GetType())
-                return false;
-
-            var other = (List)obj;
-            return elements.SequenceEqual(other.elements);
-        }
-        public static void Run()
-        {
-            List list1 = new List(new int[] { 3, 6, 1 });
-            List list2 = new List(new int[] { 1, 3, 6 });
-
-            List list3 = 1 + list1;
-            Console.WriteLine(list3);
-
-            list3 = --list1;
-            Console.WriteLine(list3);
-
-            Console.WriteLine(list1 != list2);
-            Console.WriteLine(list1 != new List(new int[] { 1, 23, 45 }));
-
-            List list4 = list1 * list2;
-            Console.WriteLine(list4);
-        }
+        Run_List();
     }
-    //internal class Laba_2
-    //{
-    //    static void Main(string[] args)
-    //    {
-    //        List list = new List();
-    //        List.Run();
-    //    }
-    //}
+
+    private static void Run_List()
+    {
+        var list1 = new List<string>(new string[] { "3", "6", "1" });
+        var list2 = new List<string>(new string[] { "1", "3", "6" });
+        
+        var list3 = "1" + list1;
+        Console.WriteLine(list3);
+        
+        list3 = --list1;
+        Console.WriteLine(list3);
+        
+        Console.WriteLine(list1 != list2);
+        Console.WriteLine(list1 != new List<string>(new string[] { "1", "23", "45" }));
+        
+        var list4 = list1 * list2;
+        Console.WriteLine(list4);
+    }
 }

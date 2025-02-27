@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Channels;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace Laba_2
 {
@@ -21,11 +16,11 @@ namespace Laba_2
         public int UserChoice { get; set; }
         public Question(string _Problem, string _Description, Dictionary<int, string> _AnswerOptions, int _RightAnswer, int _UserChoice)
         {
-            this.Problem = _Problem;
-            this.Description = _Description;
-            this.AnswerOptions = _AnswerOptions;
-            this.RightAnswer = _RightAnswer;
-            this.UserChoice = _UserChoice;
+            Problem = _Problem;
+            Description = _Description;
+            AnswerOptions = _AnswerOptions;
+            RightAnswer = _RightAnswer;
+            UserChoice = _UserChoice;
             ChoiceAnswer = CheckAnswer(_UserChoice);
         }
         public Question(string _Problem, string _Description, Dictionary<int, string> _AnswerOptions, int _RightAnswer)
@@ -88,40 +83,5 @@ namespace Laba_2
             RightAnswer = Convert.ToInt32(Console.ReadLine());
             
         }
-        private void PrintAnswers()
-        {
-            foreach (var item in AnswerOptions)
-            {
-                Console.WriteLine($"{item.Key}. {item.Value}");
-            }
-        }
     }
-    //internal class MainQuestion
-    //{
-    //    static public void Main()
-    //    {
-    //        string problem = "Что такое жопа ежа?";
-    //        string desc = "Существует ли такой термин как жопа ежа? Выберите один из ответов";
-    //        Dictionary<int, string> answers = new Dictionary<int, string>
-    //        {
-    //            [1] = "Она сушествует!!",
-    //            [2] = "Она не существует!",
-    //            [3] = "А чёрт его знает :)"
-    //        };
-    //        int correctAnswer = 1;
-    //        Question q = new Question(problem, desc, answers, correctAnswer);
-    //        Console.WriteLine(q);
-    //        Console.WriteLine("Ваш ответ: ");
-    //        int userChoice = Convert.ToInt32(Console.ReadLine());
-
-    //        if (q.CheckAnswer(userChoice))
-    //        {
-    //            Console.WriteLine("Ваш ответ правильный!");
-    //        }
-    //        else
-    //        {
-    //            Console.WriteLine("Ваш ответ неверный!");
-    //        }
-    //    }
-    //}
 }

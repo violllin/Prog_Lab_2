@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace Laba_2
 {
@@ -11,7 +7,7 @@ namespace Laba_2
         public int TimeLimit { get; set; }
         public Exam(int _TimeLimit, List<Question> _Questions, int _MinScore, int _MaxScore) : base (_Questions, _MinScore, _MaxScore)
         {
-            this.TimeLimit = _TimeLimit;
+            TimeLimit = _TimeLimit;
         }
         public override string ToString()
         {
@@ -34,9 +30,9 @@ namespace Laba_2
             }
             return res.ToString();
         }
-        public virtual void PrintInfo()
+        public virtual string PrintInfo()
         {
-            Console.WriteLine($"TimeLimit in minutes: {TimeLimit}");
+            return $"TimeLimit in minutes: {TimeLimit}";
         }
     }
 }

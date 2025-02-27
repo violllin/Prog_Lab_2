@@ -29,9 +29,5 @@ namespace Laba_2
                 }
             }
         }
-        public override string PrintInfo()
-        {
-            return $"Final Exam Name: {ExamName}";
-        }
     }
 }

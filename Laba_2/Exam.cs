@@ -35,9 +35,5 @@ namespace Laba_2
                 }
             }
         }
-        public virtual string PrintInfo()
-        {
-            return $"TimeLimit in minutes: {TimeLimit}";
-        }
     }
 }

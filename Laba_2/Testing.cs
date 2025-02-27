@@ -2,7 +2,7 @@
 
 namespace Laba_2;
 
-public sealed class Testing : Object
+public sealed class Testing
 {
     public List<Question> Questions { get; set; }
     public bool TestComplite { get; private set; }
@@ -25,7 +25,7 @@ public sealed class Testing : Object
     public override string ToString()
     {
         CalculateCurrentScore();
-        StringBuilder res = new StringBuilder();
+        var res = new StringBuilder();
 
         res.AppendLine($"Final Score: {CurrentScore}/{MaxScoreInTest}");
         res.AppendLine(Complete() ? "You have passed the test!" : "You failed the test!");
@@ -54,22 +54,6 @@ public sealed class Testing : Object
                 CurrentScore += 1;
             }
         }
-    }
-
-    public new Type GetType()
-    {
-        return typeof(Testing);
-    }
-
-    public override int GetHashCode()
-    {
-        int hash = 17;
-        foreach (var q in Questions)
-        {
-            hash = hash * 34 + (q?.GetHashCode() ?? 0);
-        }
-
-        return hash;
     }
 
     public override bool Equals(object? obj)

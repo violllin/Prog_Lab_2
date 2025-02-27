@@ -12,15 +12,9 @@ namespace Laba_2
         public override string ToString()
         {
             StringBuilder res = new StringBuilder();
-            foreach (var q in Questions)
-            {
-                if (q.ChoiceAnswer)
-                {
-                    CurrentScore += 1;
-                }
-            }
+            CalculateScore();
             res.AppendLine($"Final Score: {CurrentScore}/{MaxScore}");
-            if (TestComplite())
+            if (TestComplete())
             {
                 res.AppendLine("You have passed the test!");
             }
@@ -29,6 +23,17 @@ namespace Laba_2
                 res.AppendLine("You failed the test!");
             }
             return res.ToString();
+        }
+        
+        private void CalculateScore()
+        {
+            foreach (var q in Questions)
+            {
+                if (q.ChoiceAnswer)
+                {
+                    CurrentScore += 1;
+                }
+            }
         }
         public virtual string PrintInfo()
         {

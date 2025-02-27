@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace Laba_2
 {
@@ -13,11 +8,19 @@ namespace Laba_2
         public FinalExam(string _ExamName, int _TimeLimit, List<Question> _Questions, int _MinScore, int _MaxScore)
             : base(_TimeLimit, _Questions, _MinScore, _MaxScore)
         { 
-            this.ExamName = _ExamName;
+            ExamName = _ExamName;
         }
         public override string ToString()
         {
-            StringBuilder res = new StringBuilder();
+            var res = new StringBuilder();
+            CalculateScore();
+            res.AppendLine($"Final Score: {CurrentScore}/{MaxScore}");
+            res.AppendLine(TestComplete() ? "You have passed the test!" : "You failed the test!");
+            return res.ToString();
+        }
+
+        private void CalculateScore()
+        {
             foreach (var q in Questions)
             {
                 if (q.ChoiceAnswer)
@@ -25,26 +28,10 @@ namespace Laba_2
                     CurrentScore += 1;
                 }
             }
-            res.AppendLine($"Final Score: {CurrentScore}/{MaxScore}");
-            if (TestComplite())
-            {
-                res.AppendLine("You have passed the test!");
-            }
-            else
-            {
-                res.AppendLine("You failed the test!");
-            }
-            return res.ToString();
         }
-        public override void PrintInfo()
+        public override string PrintInfo()
         {
-            Console.WriteLine($"Final Exam Name: {ExamName}");
-        }
-    }
-    internal class MainExam
-    {
-        static void Main()
-        { 
+            return $"Final Exam Name: {ExamName}";
         }
     }
 }

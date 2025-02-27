@@ -29,25 +29,13 @@ public class Trial
         }
 
         res.AppendLine($"Final Score: {CurrentScore}/{MaxScore}");
-        if (TestComplite())
-        {
-            res.AppendLine("You have passed the test!");
-        }
-        else
-        {
-            res.AppendLine("You failed the test!");
-        }
+        res.AppendLine(TestComplete() ? "You have passed the test!" : "You failed the test!");
 
         return res.ToString();
     }
 
-    public bool TestComplite()
+    public bool TestComplete()
     {
-        if (CurrentScore <= MinScore)
-        {
-            return true;
-        }
-
-        return false;
+        return CurrentScore <= MinScore;
     }
 }

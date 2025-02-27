@@ -25,15 +25,15 @@ namespace Laba_2
         }
         public Question(string _Problem, string _Description, Dictionary<int, string> _AnswerOptions, int _RightAnswer)
         {
-            this.Problem = _Problem;
-            this.Description = _Description;
-            this.AnswerOptions = _AnswerOptions;
-            this.RightAnswer = _RightAnswer;
+            Problem = _Problem;
+            Description = _Description;
+            AnswerOptions = _AnswerOptions;
+            RightAnswer = _RightAnswer;
             ChoiceAnswer = CheckAnswer(_RightAnswer);
         }
         public override string ToString()
         {
-            StringBuilder res = new StringBuilder();
+            var res = new StringBuilder();
             res.AppendLine($"Problem: {Problem}");
             res.AppendLine($"Description: {Description}");
             res.AppendLine($"Answer: ");

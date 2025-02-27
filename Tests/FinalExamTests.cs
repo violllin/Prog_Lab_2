@@ -11,7 +11,7 @@ public class FinalExamTests
         var questions = new List<Question>();
         var finalExam = new FinalExam("Graduation Exam", 120, questions, 1, 2);
 
-        var result = finalExam.PrintInfo();
+        var result = finalExam.ToString();
 
         StringAssert.Contains(result, "Graduation Exam");
     }

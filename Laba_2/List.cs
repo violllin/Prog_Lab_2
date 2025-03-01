@@ -118,4 +118,25 @@ public class List<T> : IEnumerable<T>
             yield return elements[i];
         }
     }
+    
+    public int CountWordsWithCapitalLetter()
+    {
+        if (typeof(T) == typeof(string))
+        {
+            return this.Cast<string>().Count(word => !string.IsNullOrEmpty(word) && char.IsUpper(word[0]));
+        }
+
+        throw new InvalidOperationException("Метод применяется только к списку строк.");
+    }
+
+    public bool HasDuplicates()
+    {
+        var set = new HashSet<T>();
+        foreach (var item in this)
+        {
+            if (!set.Add(item))
+                return true;
+        }
+        return false;
+    }
 }

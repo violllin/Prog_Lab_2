@@ -10,15 +10,12 @@ namespace Laba_2
         { 
             ExamName = _ExamName;
         }
+        
         public override string ToString()
         {
-            var res = new StringBuilder();
-            CalculateScore();
-            res.AppendLine($"Final Score: {CurrentScore}/{MaxScore}");
-            res.AppendLine(TestComplete() ? "You have passed the test!" : "You failed the test!");
-            return res.ToString();
+            return ExamName;
         }
-
+        
         private void CalculateScore()
         {
             foreach (var q in Questions)

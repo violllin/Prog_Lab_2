@@ -19,7 +19,12 @@ public class Trial
 
     public override string ToString()
     {
-        StringBuilder res = new StringBuilder();
+        return TrialName;
+    }
+
+    public string PrintResult()
+    {
+        var res = new StringBuilder();
         foreach (var q in Questions)
         {
             if (q.ChoiceAnswer)
@@ -36,6 +41,6 @@ public class Trial
 
     public bool TestComplete()
     {
-        return CurrentScore <= MinScore;
+        return CurrentScore >= MinScore;
     }
 }

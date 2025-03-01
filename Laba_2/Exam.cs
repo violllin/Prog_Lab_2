@@ -11,20 +11,13 @@ namespace Laba_2
         }
         public override string ToString()
         {
-            StringBuilder res = new StringBuilder();
+            var res = new StringBuilder();
             CalculateScore();
             res.AppendLine($"Final Score: {CurrentScore}/{MaxScore}");
-            if (TestComplete())
-            {
-                res.AppendLine("You have passed the test!");
-            }
-            else
-            {
-                res.AppendLine("You failed the test!");
-            }
+            res.AppendLine(TestComplete() ? "You have passed the test!" : "You failed the test!");
             return res.ToString();
         }
-        
+
         private void CalculateScore()
         {
             foreach (var q in Questions)
